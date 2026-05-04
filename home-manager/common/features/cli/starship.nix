@@ -13,7 +13,10 @@
         disabled = false;
         ssh_symbol = "@";
       };
-      kubernetes.disabled = false;
+      kubernetes = {
+        disabled = false;
+        format = "on [ t $cluster( \\( $namespace\\))]($style) ";
+      };
       ocaml.disabled = true;
       perl.disabled = true;
       cmd_duration = {

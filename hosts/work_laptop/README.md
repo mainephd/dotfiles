@@ -40,7 +40,7 @@ Install the flake
 
 ```shell
 darwin-rebuild switch --flake $HOME/src.github/dotfiles/.#work-laptop
-home-manager switch --flake $HOME/src.github/dotfiles/.#jeff@work-laptop
+home-manager switch --flake $HOME/src.github/dotfiles/.#jermaine@work-laptop
 ```
 
 ## Things that need secrets

@@ -5,7 +5,7 @@
     # add custom settings to config
     matchBlocks."cloud" = {
       hostname = "cloud.eviljungle.com";
-      user = "jeff";
+      user = "jermaine";
       forwardAgent = true;
       setEnv = {
         is_vscode = 1;
@@ -13,7 +13,7 @@
     };
     matchBlocks."home" = {
       hostname = "home.home";
-      user = "jeff";
+      user = "jermaine";
       forwardAgent = true;
       setEnv = {
         is_vscode = 1;

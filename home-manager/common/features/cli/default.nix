@@ -23,7 +23,7 @@
     du-dust # better 'du' "WRITTEN IN RUST"
     duf # better 'df' "WRITTEN IN RUST"
     envsubst # sub env vars
-    exa # Better ls "WRITTEN IN RUST"
+    exa # Better ls "WRITTEN IN RUST" (use eza on newer nixpkgs)
     fd # better find "WRITTEN IN RUST""
     file # inspect file types
     fzf # fuzzy matcher

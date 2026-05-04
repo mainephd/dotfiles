@@ -24,8 +24,8 @@ in
     };
   };
 
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
+  # Nicely reload system units when changing configs (Linux only)
+  systemd.user.startServices = lib.mkIf pkgs.stdenv.isLinux "sd-switch";
 
   programs = {
     home-manager.enable = true;

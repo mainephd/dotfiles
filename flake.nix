@@ -1,9 +1,9 @@
 {
-  description = "billimek nix config";
+  description = "mainephd nix config";
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -11,7 +11,7 @@
 
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -82,11 +82,6 @@
     nixosConfigurations = {
       # VMs
       home = mkNixos [ ./hosts/home ];
-      cloud = mkNixos [ ./hosts/cloud ];
-      # k8s nodes
-      k3s-f = mkNixos [ ./hosts/k3s-f ];
-      k3s-g = mkNixos [ ./hosts/k3s-g ];
-      k3s-h = mkNixos [ ./hosts/k3s-h ];
     };
 
     # Build darwin flake using:
@@ -99,32 +94,13 @@
           ./hosts/work_laptop
         ];
       };
-      Jens-Air-M2 = nix-darwin.lib.darwinSystem {
-        specialArgs = inputs;
-        system = "aarch64-darwin";
-        modules = [
-          ./hosts/jens_laptop
-        ];
-      };
     };
 
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      # VMs
-      "jeff@home" = mkHome [ ./home-manager/jeff_home.nix ] nixpkgs.legacyPackages."x86_64-linux";
-      "jeff@cloud" = mkHome [ ./home-manager/jeff_cloud.nix ] nixpkgs.legacyPackages."aarch64-linux";
-      # k8s nodes
-      "nix@k3s-f" = mkHome [ ./home-manager/nix_k3s-f.nix ] nixpkgs.legacyPackages."x86_64-linux";
-      "nix@k3s-g" = mkHome [ ./home-manager/nix_k3s-g.nix ] nixpkgs.legacyPackages."x86_64-linux";
-      "nix@k3s-h" = mkHome [ ./home-manager/nix_k3s-h.nix ] nixpkgs.legacyPackages."x86_64-linux";
       # Laptops
-      "jeff@work-laptop" = mkHome [ ./home-manager/jeff_work_laptop.nix ] nixpkgs.legacyPackages."aarch64-darwin";
-      "jeff@Jens-Air-M2" = mkHome [ ./home-manager/jens_laptop.nix ] nixpkgs.legacyPackages."aarch64-darwin";
-      # Windows
-      "jeff@honeypot" = mkHome [ ./home-manager/jeff_honeypot.nix ] nixpkgs.legacyPackages."x86_64-linux";
-      # Other
-      "root@truenas" = mkHome [ ./home-manager/root_truenas.nix ] nixpkgs.legacyPackages."x86_64-linux";
+      "jermaine@work-laptop" = mkHome [ ./home-manager/jermaine_work_laptop.nix ] nixpkgs.legacyPackages."aarch64-darwin";
     };
   };
 }

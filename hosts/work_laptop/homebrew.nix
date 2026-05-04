@@ -11,30 +11,16 @@
       "cask"
     ];
     taps = [
+      "1password/tap"
+      "cloudfoundry/tap"
+      "hashicorp/tap"
       "homebrew/bundle"
-      "homebrew/cask-fonts"
-      "homebrew/services"
+      "universal-ctags/universal-ctags"
     ];
     casks = [
-      "1password"
-      "1password-cli" # need to install CLI via brew too to make biometric unlock work with GUI app 
-      "arc"
-      "discord"
-      "flameshot"
-      "gather"
-      "microsoft-remote-desktop"
-      # "moonlight"
-      "obs"
-      "obsidian"
-      "plex"
-      "rancher"
-      "spotify"
-      "steam"
-      "VIA"
+      "1password-cli"
+      "codex"
+      "font-hack-nerd-font"
     ];
-    masApps = {
-      "1Password for Safari" = 1569813296;
-      Tailscale = 1475387142;
-    };
   };
 }
