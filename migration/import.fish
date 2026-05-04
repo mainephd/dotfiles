@@ -2,10 +2,12 @@
 # import.fish — Run on your NEW Mac to restore configuration
 # Usage: fish ~/dotfiles-export/import.fish
 #
-# Prerequisites: Transfer dotfiles-export/ to the new Mac first
+# This script is bundled into dotfiles-export/ by export.fish.
+# Transfer dotfiles-export/ to the new Mac first:
 #   On old Mac:  tar czf ~/dotfiles-export.tar.gz -C ~ dotfiles-export
 #   Transfer:    scp ~/dotfiles-export.tar.gz newmac:~/
 #   On new Mac:  tar xzf ~/dotfiles-export.tar.gz -C ~
+#                fish ~/dotfiles-export/import.fish
 
 set -l IMPORT_DIR (dirname (status filename))
 
@@ -31,7 +33,7 @@ end
 # ─── Step 2: Install Homebrew packages ───
 if test -f $IMPORT_DIR/Brewfile
     echo "==> Installing Homebrew packages from Brewfile..."
-    brew bundle install --file=$IMPORT_DIR/Brewfile --no-lock
+    brew bundle install --file=$IMPORT_DIR/Brewfile
 else
     echo "  !! No Brewfile found, skipping"
 end

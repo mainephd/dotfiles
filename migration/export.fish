@@ -84,7 +84,12 @@ and cp ~/.config/gcloud/configurations/config_default $EXPORT_DIR/gcloud/
 echo "  -> CLI tools inventory..."
 which terraform go kubectl helm starship fish node python3 gcloud docker 2>/dev/null > $EXPORT_DIR/cli-tools.txt
 
-# 15. Create manifest
+# 15. Bundle import script
+echo "  -> Bundling import.fish..."
+set -l script_dir (dirname (status filename))
+cp $script_dir/import.fish $EXPORT_DIR/
+
+# 16. Create manifest
 echo "  -> Creating manifest..."
 echo "Export date: "(date) > $EXPORT_DIR/MANIFEST.txt
 echo "Hostname: "(hostname) >> $EXPORT_DIR/MANIFEST.txt
